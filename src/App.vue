@@ -413,5 +413,6 @@ const testimonials = [
     </template>
 
     <TestimonialSection :testimonials="testimonials" />
+    <div class="h-3" />
   </main>
 </template>

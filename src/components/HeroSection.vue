@@ -28,11 +28,13 @@ const jobs = [
   <section class="flex flex-col items-center px-8 py-[120px] max-md:px-5 max-md:py-16">
     <div class="flex flex-col gap-16 max-w-[904px] w-full">
       <div class="reveal flex flex-col gap-5 px-3">
-        <img
-          src="/images/avatar.jpg"
-          alt="Max Wammes"
-          class="size-16 rounded-full object-cover border border-border shadow-[0px_5px_6px_0px_rgba(30,30,40,0.05),0px_8px_21px_0px_rgba(30,30,40,0.11)]"
-        />
+        <div class="size-16 rounded-full overflow-hidden border border-border shadow-[0px_5px_6px_0px_rgba(30,30,40,0.05),0px_8px_21px_0px_rgba(30,30,40,0.11)]">
+          <img
+            src="/images/avatar.jpg"
+            alt="Max Wammes"
+            class="w-full h-full object-cover"
+          />
+        </div>
         <div class="flex flex-col gap-1.5">
           <h1 class="text-[44px] max-md:text-[32px] font-semibold text-text-heading tracking-[-0.88px] leading-normal">
             Max Wammes
