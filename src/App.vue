@@ -1,5 +1,6 @@
 <script setup>
 import HeroSection from './components/HeroSection.vue'
+import DndAnimation from './components/DndAnimation.vue'
 import TestimonialSection from './components/TestimonialSection.vue'
 import { useScrollReveal } from './composables/useScrollReveal.js'
 
@@ -67,10 +68,12 @@ const sections = [
     ],
   },
   {
-    type: 'cards',
-    layout: 'full',
-    cards: [
-      { src: '/images/projects/ai-agents-detail-1.png', bg: '#f0f0f3' },
+    type: 'container',
+    containerW: 1416,
+    containerH: 560,
+    bg: '#f0f0f3',
+    contents: [
+      { src: '/images/projects/agents-detail-r1-content.png', w: 788, h: 974, x: 327, y: -106 },
     ],
   },
   {
@@ -227,7 +230,7 @@ const sections = [
     layout: 'grid-2',
     cards: [
       { src: '/images/projects/bynder-r2-1.png', bg: '#f0f0f3' },
-      { src: '/images/projects/bynder-r2-2.png', bg: '#f0f0f3' },
+      { component: 'dnd', bg: '#f0f0f3' },
     ],
   },
   {
@@ -328,7 +331,7 @@ const testimonials = [
 
     <template v-for="(section, i) in sections" :key="i">
       <!-- Cards section -->
-      <section v-if="section.type === 'cards'" class="px-3 max-md:px-2">
+      <section v-if="section.type === 'cards'" class="px-3 max-md:px-2" :style="i > 0 && sections[i - 1]?.type === 'cards' ? 'margin-top: 16px' : ''">
         <div
           class="max-w-[1416px] mx-auto"
           :class="{
@@ -340,17 +343,45 @@ const testimonials = [
           <div
             v-for="(card, ci) in section.cards"
             :key="ci"
-            class="reveal rounded-[20px] overflow-hidden"
-            :class="`reveal-delay-${ci + 1}`"
+            class="rounded-[20px] overflow-hidden"
             :style="{ backgroundColor: card.bg }"
           >
+            <DndAnimation v-if="card.component === 'dnd'" />
             <img
+              v-else
               :src="card.src"
               :alt="`Project screenshot ${ci + 1}`"
               class="w-full h-auto block"
               loading="lazy"
             />
           </div>
+        </div>
+      </section>
+
+      <!-- Container + positioned content section -->
+      <section v-else-if="section.type === 'container'" class="px-3 max-md:px-2" :style="i > 0 && sections[i - 1]?.type !== 'text' ? 'margin-top: 16px' : ''">
+        <div
+          class="reveal max-w-[1416px] mx-auto relative rounded-[20px] overflow-hidden"
+          :style="{
+            backgroundColor: section.bg,
+            paddingBottom: (section.containerH / section.containerW * 100) + '%',
+          }"
+        >
+          <img
+            v-for="(content, ci) in section.contents"
+            :key="ci"
+            :src="content.src"
+            :alt="`Project content ${ci + 1}`"
+            class="absolute reveal"
+            :class="`reveal-delay-${ci + 1}`"
+            :style="{
+              left: (content.x / section.containerW * 100) + '%',
+              top: (content.y / section.containerH * 100) + '%',
+              width: (content.w / section.containerW * 100) + '%',
+              height: 'auto',
+            }"
+            loading="lazy"
+          />
         </div>
       </section>
 
