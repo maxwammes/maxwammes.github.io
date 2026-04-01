@@ -14,7 +14,7 @@ defineProps({
           class="reveal flex flex-col gap-10 bg-white border border-[rgba(40,40,50,0.08)] rounded-[30px] shadow-[0px_4px_9px_0px_rgba(30,30,40,0.04)] p-10"
           :class="`reveal-delay-${i + 1}`"
         >
-          <p class="text-[19px] text-text-heading leading-[30px] opacity-90 min-h-[160px] max-md:min-h-0 whitespace-pre-line">
+          <p class="flex-1 text-[19px] text-text-heading leading-[30px] opacity-90 whitespace-pre-line">
             "{{ t.quote }}"
           </p>
           <div class="flex items-center gap-3">

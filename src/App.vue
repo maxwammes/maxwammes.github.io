@@ -1,6 +1,9 @@
 <script setup>
 import HeroSection from './components/HeroSection.vue'
 import DndAnimation from './components/DndAnimation.vue'
+import LoadBubbleAnimation from './components/LoadBubbleAnimation.vue'
+import ScrollDocAnimation from './components/ScrollDocAnimation.vue'
+import SidebarAnimation from './components/SidebarAnimation.vue'
 import ResizeAnimation from './components/ResizeAnimation.vue'
 import TestimonialSection from './components/TestimonialSection.vue'
 import { useScrollReveal } from './composables/useScrollReveal.js'
@@ -29,9 +32,9 @@ const sections = [
     type: 'cards',
     layout: 'grid-3',
     cards: [
-      { src: '/images/projects/ai-copilot-detail-1.png', bg: '#f0f0f3' },
-      { src: '/images/projects/ai-copilot-detail-2.png', bg: '#f0f0f3' },
-      { src: '/images/projects/ai-copilot-detail-3.png', bg: '#f0f0f3' },
+      { component: 'sidebar', bg: '#f0f0f3' },
+      { component: 'load-bubble', bg: '#f0f0f3' },
+      { component: 'scroll-doc', bg: '#f0f0f3' },
     ],
   },
   {
@@ -348,6 +351,9 @@ const testimonials = [
             :style="{ backgroundColor: card.bg }"
           >
             <DndAnimation v-if="card.component === 'dnd'" />
+            <SidebarAnimation v-else-if="card.component === 'sidebar'" />
+            <ScrollDocAnimation v-else-if="card.component === 'scroll-doc'" />
+            <LoadBubbleAnimation v-else-if="card.component === 'load-bubble'" />
             <template v-else>
               <img
                 :src="card.src"
