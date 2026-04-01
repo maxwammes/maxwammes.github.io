@@ -1,6 +1,7 @@
 <script setup>
 import HeroSection from './components/HeroSection.vue'
 import DndAnimation from './components/DndAnimation.vue'
+import ResizeAnimation from './components/ResizeAnimation.vue'
 import TestimonialSection from './components/TestimonialSection.vue'
 import { useScrollReveal } from './composables/useScrollReveal.js'
 
@@ -222,7 +223,7 @@ const sections = [
     type: 'cards',
     layout: 'full',
     cards: [
-      { src: '/images/projects/bynder-hero-1.png', bg: '#f0f0f3' },
+      { src: '/images/projects/bynder-hero-1.png', bg: '#f0f0f3', overlay: 'resize' },
     ],
   },
   {
@@ -331,7 +332,7 @@ const testimonials = [
 
     <template v-for="(section, i) in sections" :key="i">
       <!-- Cards section -->
-      <section v-if="section.type === 'cards'" class="px-3 max-md:px-2" :style="i > 0 && sections[i - 1]?.type === 'cards' ? 'margin-top: 16px' : ''">
+      <section v-if="section.type === 'cards'" class="px-3 max-md:px-2" :style="i > 0 && sections[i - 1]?.type !== 'text' ? 'margin-top: 16px' : ''">
         <div
           class="max-w-[1416px] mx-auto"
           :class="{
@@ -343,17 +344,26 @@ const testimonials = [
           <div
             v-for="(card, ci) in section.cards"
             :key="ci"
-            class="rounded-[20px] overflow-hidden"
+            class="rounded-[20px] overflow-hidden relative"
             :style="{ backgroundColor: card.bg }"
           >
             <DndAnimation v-if="card.component === 'dnd'" />
-            <img
-              v-else
-              :src="card.src"
-              :alt="`Project screenshot ${ci + 1}`"
-              class="w-full h-auto block"
-              loading="lazy"
-            />
+            <template v-else>
+              <img
+                :src="card.src"
+                :alt="`Project screenshot ${ci + 1}`"
+                class="w-full h-auto block"
+                loading="lazy"
+              />
+              <!-- Resize animation overlay -->
+              <div
+                v-if="card.overlay === 'resize'"
+                class="absolute"
+                style="left: 17.80%; top: 3.93%; width: 30.51%; aspect-ratio: 432 / 205"
+              >
+                <ResizeAnimation />
+              </div>
+            </template>
           </div>
         </div>
       </section>
@@ -372,14 +382,7 @@ const testimonials = [
             :key="ci"
             :src="content.src"
             :alt="`Project content ${ci + 1}`"
-            class="absolute reveal"
-            :class="`reveal-delay-${ci + 1}`"
-            :style="{
-              left: (content.x / section.containerW * 100) + '%',
-              top: (content.y / section.containerH * 100) + '%',
-              width: (content.w / section.containerW * 100) + '%',
-              height: 'auto',
-            }"
+            class="absolute left-1/2 bottom-0 -translate-x-1/2 h-full w-auto"
             loading="lazy"
           />
         </div>

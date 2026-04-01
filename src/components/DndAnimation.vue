@@ -54,15 +54,15 @@
 }
 
 @keyframes indicator-top {
-  0%, 35.71%  { opacity: 0; }
-  50%, 85.71% { opacity: 1; }
-  100%        { opacity: 0; }
-}
-
-@keyframes indicator-bottom {
   0%, 35.71%  { opacity: 1; }
   50%, 85.71% { opacity: 0; }
   100%        { opacity: 1; }
+}
+
+@keyframes indicator-bottom {
+  0%, 35.71%  { opacity: 0; }
+  50%, 85.71% { opacity: 1; }
+  100%        { opacity: 0; }
 }
 
 /* card frame pos -44,48 → 16,83 but export has 10px shadow bleed, so -54,38 → 6,73 */
