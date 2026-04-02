@@ -22,3 +22,8 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Working SVG files
+/Sidebar.svg
+/Sidebar doc.svg
+/sidebar load.svg
