@@ -380,7 +380,7 @@ const testimonials = [
           class="reveal max-w-[1416px] mx-auto relative rounded-[20px] overflow-hidden"
           :style="{
             backgroundColor: section.bg,
-            paddingBottom: (section.containerH / section.containerW * 100) + '%',
+            aspectRatio: section.containerW + ' / ' + section.containerH,
           }"
         >
           <img
