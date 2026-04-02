@@ -16,7 +16,7 @@ const sections = [
     type: 'cards',
     layout: 'full',
     cards: [
-      { src: '/images/projects/ai-copilot-hero-1.png', bg: '#f0f0f3' },
+      { src: '/images/projects/ai-copilot-hero-1.png' },
     ],
   },
   {
@@ -32,9 +32,9 @@ const sections = [
     type: 'cards',
     layout: 'grid-3',
     cards: [
-      { component: 'sidebar', bg: '#f0f0f3' },
-      { component: 'load-bubble', bg: '#f0f0f3' },
-      { component: 'scroll-doc', bg: '#f0f0f3' },
+      { component: 'sidebar' },
+      { component: 'load-bubble' },
+      { component: 'scroll-doc' },
     ],
   },
   {
@@ -50,15 +50,15 @@ const sections = [
     type: 'cards',
     layout: 'full',
     cards: [
-      { src: '/images/projects/ai-agents-hero-1.png', bg: '#f0f0f3' },
+      { src: '/images/projects/ai-agents-hero-1.png' },
     ],
   },
   {
     type: 'cards',
     layout: 'grid-2',
     cards: [
-      { src: '/images/projects/agents-hero-r2-1.png', bg: '#f0f0f3' },
-      { src: '/images/projects/agents-hero-r2-2.png', bg: '#f0f0f3' },
+      { src: '/images/projects/agents-hero-r2-1.png' },
+      { src: '/images/projects/agents-hero-r2-2.png' },
     ],
   },
   {
@@ -75,7 +75,6 @@ const sections = [
     type: 'container',
     containerW: 1416,
     containerH: 560,
-    bg: '#f0f0f3',
     contents: [
       { src: '/images/projects/agents-detail-r1-content.png', w: 788, h: 974, x: 327, y: -106 },
     ],
@@ -84,8 +83,8 @@ const sections = [
     type: 'cards',
     layout: 'grid-2',
     cards: [
-      { src: '/images/projects/agents-detail-r2-1.png', bg: '#f0f0f3' },
-      { src: '/images/projects/agents-detail-r2-2.png', bg: '#f0f0f3' },
+      { src: '/images/projects/agents-detail-r2-1.png' },
+      { src: '/images/projects/agents-detail-r2-2.png' },
     ],
   },
   {
@@ -101,7 +100,7 @@ const sections = [
     type: 'cards',
     layout: 'full',
     cards: [
-      { src: '/images/projects/integrations-hero-1.png', bg: '#f0f0f3' },
+      { src: '/images/projects/integrations-hero-1.png' },
     ],
   },
   {
@@ -116,8 +115,8 @@ const sections = [
     type: 'cards',
     layout: 'grid-2',
     cards: [
-      { src: '/images/projects/reporting-hero-1.png', bg: '#f0f0f3' },
-      { src: '/images/projects/reporting-hero-2.png', bg: '#f0f0f3' },
+      { src: '/images/projects/reporting-hero-1.png' },
+      { src: '/images/projects/reporting-hero-2.png' },
     ],
   },
   {
@@ -134,7 +133,7 @@ const sections = [
     type: 'cards',
     layout: 'full',
     cards: [
-      { src: '/images/projects/2fa-hero-1.png', bg: '#f0f0f3' },
+      { src: '/images/projects/2fa-hero-1.png' },
     ],
   },
   {
@@ -150,15 +149,15 @@ const sections = [
     type: 'cards',
     layout: 'full',
     cards: [
-      { src: '/images/projects/2fa-detail-1.png', bg: '#f0f0f3' },
+      { src: '/images/projects/2fa-detail-1.png' },
     ],
   },
   {
     type: 'cards',
     layout: 'grid-2',
     cards: [
-      { src: '/images/projects/2fa-detail-r2-1.png', bg: '#f0f0f3' },
-      { src: '/images/projects/2fa-detail-r2-2.png', bg: '#f0f0f3' },
+      { src: '/images/projects/2fa-detail-r2-1.png' },
+      { src: '/images/projects/2fa-detail-r2-2.png' },
     ],
   },
 
@@ -176,15 +175,15 @@ const sections = [
     type: 'cards',
     layout: 'grid-2',
     cards: [
-      { src: '/images/projects/omnichannel-hero-1.png', bg: '#f0f0f3' },
-      { src: '/images/projects/omnichannel-hero-2.png', bg: '#f0f0f3' },
+      { src: '/images/projects/omnichannel-hero-1.png' },
+      { src: '/images/projects/omnichannel-hero-2.png' },
     ],
   },
   {
     type: 'cards',
     layout: 'full',
     cards: [
-      { src: '/images/projects/omni-hero-r2-1.png', bg: '#f0f0f3' },
+      { src: '/images/projects/omni-hero-r2-1.png' },
     ],
   },
   {
@@ -197,15 +196,15 @@ const sections = [
     type: 'cards',
     layout: 'full',
     cards: [
-      { src: '/images/projects/omnichannel-detail-1.png', bg: '#f0f0f3' },
+      { src: '/images/projects/omnichannel-detail-1.png' },
     ],
   },
   {
     type: 'cards',
     layout: 'grid-2',
     cards: [
-      { src: '/images/projects/omni-detail-r2-1.png', bg: '#f0f0f3' },
-      { src: '/images/projects/omni-detail-r2-2.png', bg: '#f0f0f3' },
+      { src: '/images/projects/omni-detail-r2-1.png' },
+      { src: '/images/projects/omni-detail-r2-2.png' },
     ],
   },
 
@@ -226,15 +225,15 @@ const sections = [
     type: 'cards',
     layout: 'full',
     cards: [
-      { src: '/images/projects/bynder-hero-1.png', bg: '#f0f0f3', overlay: 'resize' },
+      { src: '/images/projects/bynder-hero-1.png', overlay: 'resize' },
     ],
   },
   {
     type: 'cards',
     layout: 'grid-2',
     cards: [
-      { src: '/images/projects/bynder-r2-1.png', bg: '#f0f0f3' },
-      { component: 'dnd', bg: '#f0f0f3' },
+      { src: '/images/projects/bynder-r2-1.png' },
+      { component: 'dnd' },
     ],
   },
   {
@@ -253,15 +252,15 @@ const sections = [
     type: 'cards',
     layout: 'grid-2',
     cards: [
-      { src: '/images/projects/meauve-hero-1.png', bg: '#f0f0f3' },
-      { src: '/images/projects/meauve-hero-2.png', bg: '#f0f0f3' },
+      { src: '/images/projects/meauve-hero-1.png' },
+      { src: '/images/projects/meauve-hero-2.png' },
     ],
   },
   {
     type: 'cards',
     layout: 'full',
     cards: [
-      { src: '/images/projects/meauve-r2-1.png', bg: '#f0f0f3' },
+      { src: '/images/projects/meauve-r2-1.png' },
     ],
   },
   {
@@ -279,7 +278,7 @@ const sections = [
     type: 'cards',
     layout: 'grid-2',
     cards: [
-      { src: '/images/projects/assign-hero-1.png', bg: '#f0f0f3' },
+      { src: '/images/projects/assign-hero-1.png' },
       { src: '/images/projects/assign-hero-2.png', bg: '#ff7f28' },
     ],
   },
@@ -287,7 +286,7 @@ const sections = [
     type: 'cards',
     layout: 'full',
     cards: [
-      { src: '/images/projects/assign-r2-1.png', bg: '#f0f0f3' },
+      { src: '/images/projects/assign-r2-1.png' },
     ],
   },
   {
@@ -347,8 +346,8 @@ const testimonials = [
           <div
             v-for="(card, ci) in section.cards"
             :key="ci"
-            class="rounded-[20px] overflow-hidden relative"
-            :style="{ backgroundColor: card.bg }"
+            class="rounded-[20px] overflow-hidden relative bg-[#f0f0f3]"
+            :style="card.bg ? { backgroundColor: card.bg } : undefined"
           >
             <DndAnimation v-if="card.component === 'dnd'" />
             <SidebarAnimation v-else-if="card.component === 'sidebar'" />
@@ -377,9 +376,8 @@ const testimonials = [
       <!-- Container + positioned content section -->
       <section v-else-if="section.type === 'container'" class="px-3 max-md:px-2" :style="i > 0 && sections[i - 1]?.type !== 'text' ? 'margin-top: 16px' : ''">
         <div
-          class="reveal max-w-[1416px] mx-auto relative rounded-[20px] overflow-hidden"
+          class="reveal max-w-[1416px] mx-auto relative rounded-[20px] overflow-hidden bg-[#f0f0f3]"
           :style="{
-            backgroundColor: section.bg,
             aspectRatio: section.containerW + ' / ' + section.containerH,
           }"
         >

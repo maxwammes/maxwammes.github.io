@@ -1,14 +1,22 @@
 @import "tailwindcss";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 @theme {
   --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
   --color-text: #5a5a64;
   --color-text-heading: #19191e;
+  --color-text-name: rgba(25, 25, 30, 0.92);
   --color-border: rgba(40, 40, 50, 0.1);
   --color-border-strong: rgba(40, 40, 50, 0.14);
   --color-surface: rgba(107, 107, 116, 0.05);
   --color-bg: #ffffff;
   --color-bg-card: #f5f5f5;
+  --color-card: #f0f0f3;
+  --color-card-elevated: #ffffff;
+  --color-shadow: rgba(30, 30, 40, 0.05);
+  --color-shadow-strong: rgba(30, 30, 40, 0.11);
+  --color-overlay: rgba(255, 255, 255, 0.9);
 }
 
 html {
@@ -16,4 +24,23 @@ html {
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: var(--color-bg);
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.dark {
+  --color-text: #a1a1aa;
+  --color-text-heading: #f0f0f3;
+  --color-text-name: rgba(240, 240, 243, 0.92);
+  --color-border: rgba(255, 255, 255, 0.08);
+  --color-border-strong: rgba(255, 255, 255, 0.12);
+  --color-surface: rgba(255, 255, 255, 0.05);
+  --color-bg: #0f0f12;
+  --color-bg-card: #1a1a20;
+  --color-card: #1a1a20;
+  --color-card-elevated: #242429;
+  --color-shadow: rgba(0, 0, 0, 0.2);
+  --color-shadow-strong: rgba(0, 0, 0, 0.4);
+  --color-overlay: rgba(15, 15, 18, 0.9);
+  color-scheme: dark;
 }
