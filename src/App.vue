@@ -356,7 +356,7 @@ const testimonials = [
             <template v-else>
               <img
                 :src="card.src"
-                :alt="`Project screenshot ${ci + 1}`"
+                alt=""
                 class="w-full h-auto block"
                 loading="lazy"
               />
@@ -385,7 +385,7 @@ const testimonials = [
             v-for="(content, ci) in section.contents"
             :key="ci"
             :src="content.src"
-            :alt="`Project content ${ci + 1}`"
+            alt=""
             class="absolute left-1/2 bottom-0 -translate-x-1/2 h-full w-auto"
             loading="lazy"
           />

@@ -44,9 +44,10 @@ const jobs = [
                 href="https://drive.google.com/file/d/1PGDP1WkYiumnd2QOe-TaStpVoenL84vA/view?usp=sharing"
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label="Download resumé"
                 class="flex items-center gap-1.5 rounded-full py-1.5 px-2.5 text-sm text-text transition-colors hover:text-text-heading hover:bg-black/5 dark:hover:bg-white/5 no-underline"
               >
-                <svg class="size-4" viewBox="0 0 20 20" fill="none">
+                <svg class="size-4" viewBox="0 0 20 20" fill="none" aria-hidden="true">
                   <path d="M10 3.75v8.75m0 0L6.25 8.75M10 12.5l3.75-3.75M3.75 16.25h12.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
                 </svg>
                 Resumé
@@ -94,7 +95,7 @@ const jobs = [
               height="20"
               viewBox="0 0 20 20"
               fill="none"
-              xmlns="http://www.w3.org/2000/svg"
+              aria-hidden="true"
             >
               <path
                 d="M5.83 14.17L14.17 5.83M14.17 5.83H7.5M14.17 5.83V12.5"
