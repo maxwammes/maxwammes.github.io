@@ -1,5 +1,5 @@
 <script setup>
-import { ref, onMounted, onUnmounted } from 'vue'
+import { ref, nextTick, onMounted, onUnmounted } from 'vue'
 
 const props = defineProps({
   src: { type: String, required: true },
@@ -11,16 +11,47 @@ const wrapper = ref(null)
 function restartAnimations() {
   if (!wrapper.value || document.hidden) return
 
-  // Reset all CSS animations to t=0
+  // Reset all CSS + Web Animations to t=0
   wrapper.value.getAnimations({ subtree: true }).forEach(anim => {
     anim.currentTime = 0
   })
+}
 
-  // Reset SMIL animations to t=0
-  const svg = wrapper.value.querySelector('svg')
-  if (svg?.setCurrentTime) {
-    svg.setCurrentTime(0)
-  }
+// Convert SMIL <animate> elements to Web Animations API so they share
+// the same timeline as CSS animations and stay in sync.
+function convertSmilToWebAnimations(container) {
+  const svg = container.querySelector('svg')
+  if (!svg) return
+
+  svg.querySelectorAll('animate').forEach(animate => {
+    const target = animate.parentElement
+    const attr = animate.getAttribute('attributeName')
+    const values = animate.getAttribute('values')?.split(';')
+    const keyTimes = animate.getAttribute('keyTimes')?.split(';').map(Number)
+    const dur = parseFloat(animate.getAttribute('dur')) * 1000
+    const keySplines = animate.getAttribute('keySplines')
+      ?.split(';').map(s => s.trim()) || []
+
+    if (!values || !keyTimes || !dur) return
+
+    const needsUnits = ['x', 'y', 'width', 'height', 'rx', 'ry', 'cx', 'cy', 'r']
+    const keyframes = values.map((v, i) => {
+      const frame = { offset: keyTimes[i] }
+      frame[attr] = needsUnits.includes(attr) ? v.trim() + 'px' : v.trim()
+      if (i < keySplines.length) {
+        const parts = keySplines[i].split(/\s+/).map(Number)
+        frame.easing = `cubic-bezier(${parts.join(',')})`
+      }
+      return frame
+    })
+
+    target.animate(keyframes, {
+      duration: dur,
+      iterations: Infinity,
+    })
+
+    animate.remove()
+  })
 }
 
 onMounted(async () => {
@@ -37,6 +68,9 @@ onMounted(async () => {
     // XML namespace prefixes (ns2:href, xlink:href) aren't resolved by the HTML5 parser
     .replace(/\bns2:href=/g, 'href=')
     .replace(/\bxlink:href=/g, 'href=')
+
+  await nextTick()
+  convertSmilToWebAnimations(wrapper.value)
 
   document.addEventListener('visibilitychange', restartAnimations)
 })
