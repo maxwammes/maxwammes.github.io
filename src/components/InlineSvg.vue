@@ -62,9 +62,9 @@ onMounted(async () => {
     .replace(/<\?xml[^?]*\?>\s*/i, '')
     .replace(/<svg([^>]*)\swidth="[^"]*"/, '<svg$1 width="100%"')
     .replace(/<svg([^>]*)\sheight="[^"]*"/, '<svg$1 height="100%"')
-    // HTML5 parser treats self-closing non-void tags as open tags;
-    // expand <html:div .../> → <div ...></div> so foreignObject content parses correctly
-    .replace(/<html:div([^/]*)\/>/g, '<div$1></div>')
+    // Remove foreignObject blur overlays (Figma bg-blur export artefact)
+    .replace(/<foreignObject[^>]*>.*?<\/foreignObject>/g, '')
+    .replace(/<foreignObject[^>]*\/>/g, '')
     // XML namespace prefixes (ns2:href, xlink:href) aren't resolved by the HTML5 parser
     .replace(/\bns2:href=/g, 'href=')
     .replace(/\bxlink:href=/g, 'href=')
