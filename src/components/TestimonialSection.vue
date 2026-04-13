@@ -6,8 +6,8 @@ defineProps({
 
 <template>
   <section class="reveal px-3 max-md:px-2">
-    <div class="bg-card rounded-[20px] p-20 max-md:p-8">
-      <div class="grid grid-cols-1 min-[960px]:grid-cols-2 gap-4 max-w-[1256px] mx-auto">
+    <div class="bg-card rounded-[20px] p-20 max-md:p-8 max-w-[1416px] mx-auto">
+      <div class="grid grid-cols-1 min-[960px]:grid-cols-2 gap-4 mx-auto">
         <div
           v-for="(t, i) in testimonials"
           :key="i"
