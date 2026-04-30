@@ -5,7 +5,6 @@ const { mode, setMode } = useDarkMode()
 const options = [
   { value: 'light', label: 'Light mode' },
   { value: 'dark', label: 'Dark mode' },
-  { value: 'system', label: 'System setting' },
 ]
 </script>
 
@@ -29,10 +28,6 @@ const options = [
         <!-- Moon -->
         <svg v-else-if="opt.value === 'dark'" class="size-4" :class="mode === 'dark' ? 'text-text-heading' : ''" viewBox="0 0 20 20" fill="none" aria-hidden="true">
           <path d="M17.09 11.18A7.5 7.5 0 0 1 8.82 2.91a7.5 7.5 0 1 0 8.27 8.27Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-        </svg>
-        <!-- Monitor -->
-        <svg v-else class="size-4" :class="mode === 'system' ? 'text-text-heading' : ''" viewBox="0 0 20 20" fill="none" aria-hidden="true">
-          <path d="M3.33 3.75h13.34c.92 0 1.66.74 1.66 1.67v7.5c0 .92-.74 1.66-1.66 1.66H3.33c-.92 0-1.66-.74-1.66-1.66v-7.5c0-.93.74-1.67 1.66-1.67ZM7.5 16.25h5M10 14.58v1.67" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
         </svg>
       </button>
       <span class="pointer-events-none absolute left-1/2 -translate-x-1/2 top-full mt-2 px-2.5 py-1 rounded-lg bg-text-heading text-bg text-xs whitespace-nowrap opacity-0 group-hover/tip:opacity-100 transition-opacity delay-0 group-hover/tip:delay-[2000ms]">

@@ -1,14 +1,11 @@
 import { ref, watch, onMounted } from 'vue'
 
 const STORAGE_KEY = 'theme'
-const mode = ref('system') // 'light' | 'dark' | 'system'
+const mode = ref('light') // 'light' | 'dark'
 let initialized = false
-let mediaQuery = null
 
 function applyTheme() {
-  const dark = mode.value === 'dark' ||
-    (mode.value === 'system' && window.matchMedia('(prefers-color-scheme: dark)').matches)
-  document.documentElement.classList.toggle('dark', dark)
+  document.documentElement.classList.toggle('dark', mode.value === 'dark')
 }
 
 export function useDarkMode() {
@@ -24,12 +21,9 @@ export function useDarkMode() {
     if (stored === 'light' || stored === 'dark') {
       mode.value = stored
     } else {
-      mode.value = 'system'
+      mode.value = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
     }
     applyTheme()
-
-    mediaQuery = window.matchMedia('(prefers-color-scheme: dark)')
-    mediaQuery.addEventListener('change', applyTheme)
   })
 
   watch(mode, (val) => {
