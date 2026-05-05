@@ -5,21 +5,21 @@ const jobs = [
   {
     company: 'Trengo',
     role: 'Design Lead / Senior Product Designer',
-    period: 'Feb 2022 - Present',
+    period: 'Feb 2022  –  Present',
     logo: '/images/trengo-logo.svg',
     url: 'https://trengo.com',
   },
   {
     company: 'Bynder',
     role: 'Product Designer & Design Systems Lead',
-    period: 'Apr 2018 - Jan 2022',
+    period: 'Apr 2018  –  Jan 2022',
     logo: '/images/bynder-logo.svg',
     url: 'https://bynder.com',
   },
   {
     company: 'Brthrs Agency',
     role: 'Designer & Frontend engineer',
-    period: 'Sep 2015 – Mar 2018',
+    period: 'Sep 2015  –  Mar 2018',
     logo: '/images/brthrs-logo.svg',
     url: 'https://brthrs.nl',
   },
@@ -84,7 +84,7 @@ const jobs = [
             <p class="text-base font-medium text-text-heading leading-6">{{ job.company }}</p>
             <p class="text-base text-text leading-6">{{ job.role }}</p>
           </div>
-          <p class="text-base text-text leading-[30px] whitespace-nowrap max-md:hidden group-hover:hidden">
+          <p class="text-base text-text leading-[30px] whitespace-pre max-md:hidden group-hover:hidden">
             {{ job.period }}
           </p>
           <div class="hidden group-hover:flex items-center gap-1 text-text-heading">
